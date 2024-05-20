@@ -1,0 +1,8 @@
+# load base requirements
+-r requirements.txt
+
+# requirements needed on production only
+uwsgi~=2.0.0
+hiredis==0.2.0
+redis==2.10.5
+django-redis==4.8.0

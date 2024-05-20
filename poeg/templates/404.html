@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+				<div class="content-wrap">
+					<div class=" clearfix"></div>
+					<div class="divcenter center">
+						<h1>Požadovaná stránka neexistuje</h1>
+						<p>Omlouváme se, ale požadovanou stránku nemůžeme nalézt.</p>
+						<p>
+							<a href="{% url "homepage" %}" class="button button-rounded button-green">
+								Přejít na úvodní stránku...
+							</a>
+						</p>
+					</div>
+					<div class=" clearfix"></div>
+			</div>
+{% endblock %}

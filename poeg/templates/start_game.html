@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load  core_tags %}
+
+{% block content %}
+    <div class="content-wrap"
+         style="/*background-image:  url(hp_images/hp_bg.png);background-repeat:  no-repeat; background-size: cover; background-position: center bottom; background-c*/">
+        <div class="divcenter center container" style=" margin-bottom: 0px ;  ">
+            <h1>{% trans "Do you want to start your game?" %}</h1>
+            <h2>{{ active_game.game.name }}</h2>
+            <p>{% render active_game.game.startpage %}</p>
+            <h4>{% trans "Once you start your game, we measure your time. After finishing each quest, gameplay is stopped, so you can have a rest and enjouy beauties of Prague. If you don´t finish quest, we keep counting your time!" %}</h4>
+            <form action="." method="post">{% csrf_token %}
+                <button name="start_game" class="button button-desc button-3d button-rounded button-green center">
+                    {% trans "Start game" %}
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

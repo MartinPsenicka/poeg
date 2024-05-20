@@ -1,0 +1,9 @@
+{% load i18n %}{% blocktrans with variable_symbol=ordered_game.variable_symbol price=price due_date=ordered_game.due_date|date:"j.n.Y" %}Dobrý den,
+
+děkujeme Vám za zájem o naše hry. Vámi objednanou hru prosím uhraďte na účet 2301218731/2010,
+variabilní symbol platby {{ variable_symbol }}, částka {{ price }} Kč.
+
+Částku prosím uhraďte do {{ due_date }}
+
+Tým POEG.cz
+{% endblocktrans %}

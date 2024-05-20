@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load bootstrap3 %}
+{% block content %}
+    <div class="content-wrap">
+        <div class="divcenter center container" style=" margin-bottom: 0px ;  ">
+            <h1>{% trans "Activate game" %}: {{ game.name }}</h1>
+            <form action="." method="post" role="form">{% csrf_token %}
+                {% bootstrap_form activate_form %}
+                {% buttons %}
+                    <button type="submit" class="button button-rounded button-green">{% trans "Apply voucher" %}</button>
+                {% endbuttons %}
+            </form>
+        </div>
+        <div class="divcenter center container" style=" margin-bottom: 0px ;  ">
+            <h1>{% trans "Order new game" %}</h1>
+            {#            <form action="." method="post" role="form">{% csrf_token %}#}
+            <form action="." method="post" role="form">{% csrf_token %}
+                {% bootstrap_form order_form %}
+                {% buttons %}
+                    <button type="submit" class="button button-rounded button-green">{% trans "Order game" %}</button>
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

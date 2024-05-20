@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load core_tags %}
+
+{% block content %}
+<div id="wrapper" class="clearfix">
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap container" style="/*background-image:  url(hp_images/hp_bg.png);background-repeat:  no-repeat; background-size: cover; background-position: center bottom; background-c*/"  >
+
+				<!--div class="container clearfix"-->
+					<div class=" clearfix"></div>
+					<div>
+						<h1>{{ flatpage.title }}</h1>
+						{% render flatpage.content %}
+
+					</div>
+					<div class="clearfix"></div>
+			</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load core_tags %}
+
+{% block content %}
+    <div class="content-wrap"
+         style="/*background-image:  url(hp_images/hp_bg.png);background-repeat:  no-repeat; background-size: cover; background-position: center bottom; background-c*/">
+        <div class="divcenter center container" style=" margin-bottom: 0px ;  ">
+            {#            <h1>{{ next_quest }} active_quest</h1>#}
+            <h2>{% trans "You play game" %} {{ active_log.quest.game.name }}</h2>
+
+            <div class="well well-lg nobottommargin">{{ active_log.quest.description|safe }}</div>
+
+            <div class="well well-lg nobottommargin">
+
+                <form action="." method="post" onsubmit="return continueornot();">
+                    {% csrf_token %}
+                    <input type="hidden" value="" name="finish_this_quest">
+                    {{ active_log.quest.jscode|safe }}
+                    <button class="button button-3d button-rounded button-green
+                    center" type="submit">{% trans "Answer" %}
+                    </button>
+                </form>
+            </div>
+
+            {% for hint in active_log.quest.hint_set.all %}
+                {% if hint in active_log.used_hints.all %}
+                    {#                    vyuzite napovedy#}
+                    <div class="row">
+                        <div class="button button-desc button-3d button-rounded
+                    {% if forloop.counter == 1 %} button-yellow
+                    {% elif forloop.counter == 2 %} button-amber
+                    {% else %} button-red
+                    {% endif %}
+                    center" style="white-space: normal;">
+                           {% render hint.text %}
+                            <img src="{{ hint.image }}" alt="">
+                            <span>{% trans "penalty time" %} {{ hint.pretty_penalty }}</span>
+                        </div>
+                    </div>
+
+{#                    {{ hint }}#}
+                {% else %}
+                    <div class="row">
+                        <form action="{% url "use_hint" active_game_id=active_log.active_game_id %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ hint.id }}" name="hint_to_use">
+
+                            <button class="button button-desc button-3d button-rounded
+                    {% if forloop.counter == 1 %} button-yellow {% elif forloop.counter == 2 %} button-amber
+                    {% else %}
+                     button-red {% endif %}
+
+                    center" type="submit">
+                                {% if forloop.counter == 1 %}{% trans "Use hint" %} {% elif forloop.counter == 2 %}{% trans "Use hint" %}
+                                {% else %}
+                                    {% trans "Solution" %}  {% endif %}
+
+                                (+{{ hint.pretty_penalty }})
+                            </button>
+                        </form>
+                    </div>
+
+                {% endif %}
+
+
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

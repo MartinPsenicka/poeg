@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static i18n %}
+{% block content %}
+    <div class="content-wrap">
+        <div class="container">
+            <h1>{% trans "Order confirmation" %}</h1>
+
+		<div class="tabs tabs-responsive clearfix">
+
+							<ul class="tab-nav clearfix">
+								<li><a href="#tab-responsive-1"><h3>{% trans "Card" %}</h3></a></li>
+								<li><a href="#tab-responsive-2"><h3>{% trans "Bankwire" %}</h3></a></li>
+							</ul>
+
+							<div class="tab-container">
+
+								<div class="tab-content clearfix" id="tab-responsive-1">
+
+ 	        <form action="{% url "payment-gopay" game.id %}" method="post" role="form">{% csrf_token %}
+					{% for fld in order_form %}
+                  {{ fld.as_hidden }}
+               {% endfor %}
+{#                <h4>{% trans "price" %}: {{ order_form.cleaned_data.number_of_players }} Kč</h4>#}
+                    <h4>{% trans "price" %}: {{ order_form.price }} Kč</h4>
+                {% buttons %}
+                    <button type="submit" class="button button-rounded button-green">{% trans "Order game" %}</button>
+                {% endbuttons %}
+            </form>
+
+								</div>
+								<div class="tab-content clearfix" id="tab-responsive-2">
+            <form action="{% url "bankwire" game.id %}" method="post" role="form">{% csrf_token %}
+					{% for fld in order_form %}
+                  {{ fld.as_hidden }}
+               {% endfor %}
+                <h4>{% trans "price" %}: {{ order_form.price }} Kč</h4>
+
+                {% buttons %}
+                    <button type="submit" class="button button-rounded button-green">{% trans "Order game" %}</button>
+                {% endbuttons %}
+            </form>
+
+								</div>
+
+							</div>
+
+						</div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+{% endblock %}

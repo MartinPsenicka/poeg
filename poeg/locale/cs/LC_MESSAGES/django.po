@@ -1,0 +1,835 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-26 06:46+0200\n"
+"PO-Revision-Date: 2017-07-26 06:47+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 2.0.2\n"
+
+#: .\poeg\apps\core\models.py:18 .\poeg\apps\games\models.py:23
+msgid "name"
+msgstr "jméno"
+
+#: .\poeg\apps\core\models.py:19
+msgid "slider content"
+msgstr "obsah slideru"
+
+#: .\poeg\apps\core\models.py:20 .\poeg\apps\games\models.py:82
+msgid "image"
+msgstr ""
+
+#: .\poeg\apps\core\models.py:21 .\poeg\apps\games\models.py:17
+#: .\poeg\apps\users\models.py:42 .\poeg\templates\account\user_profile.html:28
+msgid "active"
+msgstr ""
+
+#: .\poeg\apps\core\models.py:22
+msgid "Designates whether this slide is active."
+msgstr ""
+
+#: .\poeg\apps\core\models.py:23 .\poeg\apps\games\models.py:19
+msgid "homepageorder"
+msgstr ""
+
+#: .\poeg\apps\core\models.py:24 .\poeg\apps\games\models.py:20
+msgid "Order on homepage"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:18
+msgid "Designates whether this game is active."
+msgstr ""
+
+#: .\poeg\apps\games\models.py:24
+msgid "homepageblock"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:25
+msgid "modalblock"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:26
+msgid "startpage"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:27
+msgid "finishpage"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:38 .\poeg\apps\games\models.py:49
+#: .\poeg\apps\games\models.py:110 .\poeg\apps\payments\models.py:44
+msgid "gameid"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:39
+msgid "game price"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:40
+msgid "max number of players"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:50
+msgid "order withing game"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:53
+msgid "quest description"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:54
+msgid "javascript code"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:55
+msgid "text between quests"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:81
+msgid "quest"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:83
+msgid "penalty"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:84
+msgid "order withing quest"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:87
+msgid "hint"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:103
+msgid "gratis Martin"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:104
+msgid "gratis Lucka"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:105
+msgid "voucher own"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:106
+msgid "voucher Slevomat"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:107
+msgid "platba převodem"
+msgstr "bankwire"
+
+#: .\poeg\apps\games\models.py:108
+msgid "platba GoPay"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:111 .\poeg\apps\users\models.py:70
+msgid "user"
+msgstr "uživatel"
+
+#: .\poeg\apps\games\models.py:112
+msgid "activated"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:113
+msgid "finished"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:114
+msgid "activation type"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:170
+msgid "active game"
+msgstr ""
+
+#: .\poeg\apps\games\models.py:171
+msgid "active quest"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:30
+msgid "voucher code"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:31
+msgid "gratis game"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:32
+msgid "used count"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:33
+msgid "discount"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:34
+msgid "target price"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:43
+msgid "payment type"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:45
+msgid "user_id"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:46
+msgid "variable symbol"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:47 .\poeg\templates\confirm_payment.html:11
+#: .\poeg\templates\confirm_payment.html:21
+msgid "price"
+msgstr "cena"
+
+#: .\poeg\apps\payments\models.py:48
+msgid "time of creation"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:49
+msgid "payment instruction email sent"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:50
+msgid "number of sent notifications"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:51
+msgid "time of payment"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:52
+msgid "Days of payment due"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:53
+msgid "note"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:56
+msgid "user email"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:57
+msgid "game name"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:83
+msgid "GoPay log entry"
+msgstr ""
+
+#: .\poeg\apps\payments\models.py:84
+msgid "GoPay log entries"
+msgstr ""
+
+#: .\poeg\apps\users\admin.py:14
+msgid "Personal info"
+msgstr ""
+
+#: .\poeg\apps\users\admin.py:15
+msgid "Permissions"
+msgstr ""
+
+#: .\poeg\apps\users\admin.py:17
+msgid "Important dates"
+msgstr ""
+
+#: .\poeg\apps\users\models.py:39
+msgid "email address"
+msgstr ""
+
+#: .\poeg\apps\users\models.py:40
+msgid "first name"
+msgstr ""
+
+#: .\poeg\apps\users\models.py:41
+msgid "last name"
+msgstr ""
+
+#: .\poeg\apps\users\models.py:43
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: .\poeg\apps\users\models.py:45
+msgid "staff status"
+msgstr ""
+
+#: .\poeg\apps\users\models.py:46
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: .\poeg\apps\users\models.py:47
+msgid "date joined"
+msgstr ""
+
+#: .\poeg\apps\users\models.py:49
+msgid "teamname"
+msgstr "jméno týmu"
+
+#: .\poeg\apps\users\models.py:50
+msgid "Jméno Vašeho týmu"
+msgstr ""
+
+#: .\poeg\apps\users\models.py:52
+msgid "prefered lang"
+msgstr ""
+
+#: .\poeg\apps\users\models.py:52
+msgid "Language ISO."
+msgstr ""
+
+#: .\poeg\apps\users\models.py:54
+msgid "informovat o novinkách"
+msgstr ""
+
+#: .\poeg\apps\users\models.py:71
+msgid "users"
+msgstr ""
+
+#: .\poeg\settings\base.py:155
+msgid "Czech"
+msgstr ""
+
+#: .\poeg\settings\base.py:156
+msgid "English"
+msgstr ""
+
+#: .\poeg\templates\account\email\password_reset_key_message.txt:1
+#, python-format
+msgid ""
+"Zdraví Vás %(site_name)s!\n"
+"\n"
+"Zažádali jste o změnu hesla. Pokud to tak skutečně je, změníte si jej na "
+"adrese níže. Pokud jste žádost o změnu hesla nezasílali, dejte nám prosím "
+"vědět.\n"
+msgstr ""
+
+#: .\poeg\templates\account\email\password_reset_key_message.txt:8
+#, python-format
+msgid "Vaše přihlašovací jméno je %(username)s."
+msgstr ""
+
+#: .\poeg\templates\account\email\password_reset_key_message.txt:10
+#, python-format
+msgid ""
+"Děkujeme! %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+
+#: .\poeg\templates\account\login.html:13
+#: .\poeg\templates\account\login.html:18
+#: .\poeg\templates\account\login.html:51
+msgid "Sign In"
+msgstr "Přihlásit se"
+
+#: .\poeg\templates\account\login.html:23
+#, python-format
+msgid ""
+"Please sign in with one\n"
+"of your existing third party accounts. Or, <a href=\"%(signup_url)s\">sign "
+"up</a>\n"
+"for a %(site_name)s account and sign in below:"
+msgstr ""
+
+#: .\poeg\templates\account\login.html:33
+msgid "or"
+msgstr "nebo"
+
+#: .\poeg\templates\account\login.html:40
+#, python-format
+msgid ""
+"If you have not created an account yet, then please\n"
+"<a href=\"%(signup_url)s\">sign up</a> first."
+msgstr ""
+"Pokud ješte nemáte uživatelský profil, \n"
+"<a href=\"%(signup_url)s\">přihlaste se</a>."
+
+#: .\poeg\templates\account\login.html:50
+msgid "Forgot Password?"
+msgstr "Zapomenuté heslo?"
+
+#: .\poeg\templates\account\password_change.html:5
+#: .\poeg\templates\account\password_change.html:8
+#: .\poeg\templates\account\password_change.html:14
+msgid "Change Password"
+msgstr "Změna hesla"
+
+#: .\poeg\templates\account\password_reset.html:5
+#: .\poeg\templates\account\password_reset.html:9
+#: .\poeg\templates\account\password_reset_done.html:6
+#: .\poeg\templates\account\password_reset_done.html:9
+msgid "Password Reset"
+msgstr "Reset hesla"
+
+#: .\poeg\templates\account\password_reset.html:14
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+"Zapoměli jste své heslo? Zadejte Váš email, zašleme Vám odkaz pro resetování "
+"hesla."
+
+#: .\poeg\templates\account\password_reset.html:20
+msgid "Reset My Password"
+msgstr "Resetovat moje heslo"
+
+#: .\poeg\templates\account\password_reset.html:24
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+"Kontaktujte nás prosím, pokud máte jakékoliv potíže s resetováním Vašeho "
+"hesla."
+
+#: .\poeg\templates\account\password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"Zaslali jsme Vám email. Pokud Vám během několika minut nedorazí, kontaktujte "
+"nás prosím."
+
+#: .\poeg\templates\account\signup.html:5
+msgid "Signup"
+msgstr "Přihlášení"
+
+#: .\poeg\templates\account\signup.html:8
+#: .\poeg\templates\account\signup.html:20
+msgid "Sign Up"
+msgstr "Přihlásit se"
+
+#: .\poeg\templates\account\signup.html:10
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>\n"
+"\t\t."
+msgstr ""
+"Máte už vytvořený uživatelský profil? <a href=\"%(login_url)s\">Přihlaste "
+"se</a>\n"
+"\t\t."
+
+#: .\poeg\templates\account\user_profile.html:8
+msgid "Welcome"
+msgstr "Vítejte"
+
+#: .\poeg\templates\account\user_profile.html:9
+msgid "Your profile"
+msgstr "Váš profil"
+
+#: .\poeg\templates\account\user_profile.html:14
+msgid "Save changes"
+msgstr "Uložit změny"
+
+#: .\poeg\templates\account\user_profile.html:16
+msgid "I want to change my password"
+msgstr "Chci změnit heslo"
+
+#: .\poeg\templates\account\user_profile.html:22
+msgid "Your games"
+msgstr "Vaše hry"
+
+#: .\poeg\templates\account\user_profile.html:25
+msgid "Game name"
+msgstr "Jméno hry"
+
+#: .\poeg\templates\account\user_profile.html:26
+msgid "payment"
+msgstr "platba"
+
+#: .\poeg\templates\account\user_profile.html:27
+msgid "activation date"
+msgstr "datum aktivace"
+
+#: .\poeg\templates\account\user_profile.html:29
+msgid "play"
+msgstr "hrát"
+
+#: .\poeg\templates\account\user_profile.html:29
+#: .\poeg\templates\account\user_profile.html:46
+msgid "continue"
+msgstr "pokračovat"
+
+#: .\poeg\templates\account\user_profile.html:37
+msgid "Y"
+msgstr "A"
+
+#: .\poeg\templates\account\user_profile.html:38
+msgid "N"
+msgstr "N"
+
+#: .\poeg\templates\account\user_profile.html:44
+msgid "start"
+msgstr "začít"
+
+#: .\poeg\templates\account\user_profile.html:49
+msgid "game finished"
+msgstr "dokončená hra"
+
+#: .\poeg\templates\account\user_profile.html:56
+msgid "You don´t have any available game"
+msgstr "Nemáte žádnou rozehranou hru"
+
+#: .\poeg\templates\account\user_profile.html:58
+msgid "Let´s play"
+msgstr "Pojďme hrát"
+
+#: .\poeg\templates\activate_game.html:7
+msgid "Activate game"
+msgstr "Aktivuj hru"
+
+#: .\poeg\templates\activate_game.html:11
+msgid "Apply voucher"
+msgstr "Použij voucher"
+
+#: .\poeg\templates\activate_game.html:16
+msgid "Order new game"
+msgstr "Objednávka nové hry"
+
+#: .\poeg\templates\activate_game.html:21
+#: .\poeg\templates\confirm_payment.html:14
+#: .\poeg\templates\confirm_payment.html:24
+msgid "Order game"
+msgstr "Objednat hru"
+
+#: .\poeg\templates\active_quest.html:10
+msgid "You play game"
+msgstr "Hrajete hru"
+
+#: .\poeg\templates\active_quest.html:21
+msgid "Answer"
+msgstr "Odpověď"
+
+#: .\poeg\templates\active_quest.html:38
+msgid "penalty time"
+msgstr "penalizace"
+
+#: .\poeg\templates\active_quest.html:55
+msgid "Use hint"
+msgstr "Použij nápovědu"
+
+#: .\poeg\templates\active_quest.html:57
+msgid "Solution"
+msgstr "Řešení"
+
+#: .\poeg\templates\bankwire.html:7
+msgid "Thank you for ordering game"
+msgstr "Děkujeme Vám za objednání hry"
+
+#: .\poeg\templates\bankwire.html:8
+msgid "Payment information"
+msgstr "Platební informace"
+
+#: .\poeg\templates\bankwire.html:9 .\poeg\templates\base.html:225
+msgid "Account number"
+msgstr "Číslo účtu"
+
+#: .\poeg\templates\bankwire.html:10
+msgid "Variable (reference number)"
+msgstr "Variabliní symbol"
+
+#: .\poeg\templates\bankwire.html:12
+msgid ""
+"We also send you payment information on your email. After processing your "
+"payment we will let you know, you can find your game in your user profile "
+"after."
+msgstr ""
+"Platební údaje Vám zároveň zasíláme emailem. Po připsání platby Vás budeme "
+"informovat, Vaši hru poté najdete v detailu Vašeho uživatelského účtu."
+
+#: .\poeg\templates\base.html:222
+msgid "Technical issues"
+msgstr "Technické problémy"
+
+#: .\poeg\templates\base.html:224
+msgid "Bank account"
+msgstr "Bankovní spojení"
+
+#: .\poeg\templates\base.html:240
+msgid "Informations"
+msgstr "Informace"
+
+#: .\poeg\templates\base.html:243
+msgid "Wrote about us"
+msgstr "Napsali o nás"
+
+#: .\poeg\templates\base.html:244
+msgid "Contacts"
+msgstr "Kontakty"
+
+#: .\poeg\templates\base.html:245 .\poeg\templates\homepage.html:40
+msgid "Our games"
+msgstr "Naše hry"
+
+#: .\poeg\templates\base.html:246
+msgid "Our team"
+msgstr "Náš tým"
+
+#: .\poeg\templates\base.html:248 .\poeg\templates\base.html:377
+msgid "Terms and conditions"
+msgstr "Obchodní podmínky"
+
+#: .\poeg\templates\base.html:249
+msgid "Cookies"
+msgstr "Využití Cookies"
+
+#: .\poeg\templates\base.html:252
+msgid "Personal data usage"
+msgstr "Využití osobních údajů"
+
+#: .\poeg\templates\base.html:253
+msgid "Cooperation"
+msgstr "Spolupráce"
+
+#: .\poeg\templates\base.html:263
+msgid "News"
+msgstr "Novinky"
+
+#: .\poeg\templates\base.html:330 .\poeg\templates\base.html:337
+#: .\poeg\templates\homepage.html:112
+msgid "Sign up"
+msgstr "Přihlaste se"
+
+#: .\poeg\templates\base.html:330
+msgid "for news about our games!"
+msgstr "k odběru novinek o našich hrách!"
+
+#: .\poeg\templates\base.html:335
+msgid "Leave us your email..."
+msgstr "Zanechte nám Váš email..."
+
+#: .\poeg\templates\base.html:354
+msgid "Our"
+msgstr "Náš"
+
+#: .\poeg\templates\base.html:376
+msgid "All rights reserved"
+msgstr "Všechna práva vyhrazena"
+
+#: .\poeg\templates\base.html:378
+msgid "Privacy information"
+msgstr "Osobní údaje"
+
+#: .\poeg\templates\between_quests.html:10
+msgid "YES! You finished quest in game"
+msgstr "ANO! Splnili jste úkol ve hře"
+
+#: .\poeg\templates\between_quests.html:21
+msgid "Time spent with quest"
+msgstr "Čas strávený s úkolem"
+
+#: .\poeg\templates\between_quests.html:26 .\poeg\templates\finish_game.html:17
+msgid "Penalty"
+msgstr "Penalizace"
+
+#: .\poeg\templates\between_quests.html:31
+msgid "Time spent with your game"
+msgstr "Čas strávený s aktuální hrou"
+
+#: .\poeg\templates\between_quests.html:43
+msgid "Let´s go for next quest!"
+msgstr "Pojďme na další úkol!"
+
+#: .\poeg\templates\between_quests.html:48
+msgid "End game"
+msgstr "Konec hry"
+
+#: .\poeg\templates\confirm_payment.html:7
+msgid "Order confirmation"
+msgstr "Potvrzení objednávky"
+
+#: .\poeg\templates\confirm_payment.html:8
+msgid "Bankwire"
+msgstr "Platba převodem"
+
+#: .\poeg\templates\confirm_payment.html:18
+msgid "Card"
+msgstr ""
+
+#: .\poeg\templates\email\bankwire.txt:1
+#, python-format
+msgid ""
+"Dobrý den,\n"
+"\n"
+"děkujeme Vám za zájem o naše hry. Vámi objednanou hru prosím uhraďte na účet "
+"2301218731/2010,\n"
+"variabilní symbol platby %(variable_symbol)s, částka %(price)s Kč.\n"
+"\n"
+"Částku prosím uhraďte do %(due_date)s\n"
+"\n"
+"Tým POEG.cz\n"
+msgstr ""
+"Dobrý den,\n"
+"\n"
+"děkujeme Vám za zájem o naše hry. Vámi objednanou hru prosím uhraďte na účet "
+"2301218731/2010,\n"
+"variabilní symbol platby %(variable_symbol)s, částka %(price)s Kč.\n"
+"\n"
+"Částku prosím uhraďte do %(due_date)s\n"
+"\n"
+"Tým POEG.cz\n"
+
+#: .\poeg\templates\finish_game.html:7
+msgid "Congraulations! You successfully finished game"
+msgstr "Blahopřejeme! Dohráli jste hru"
+
+#: .\poeg\templates\finish_game.html:10
+msgid "Stats"
+msgstr "Statistiky"
+
+#: .\poeg\templates\finish_game.html:16
+msgid "Time spent"
+msgstr "Strávený čas"
+
+#: .\poeg\templates\finish_game.html:37
+msgid "Total for game"
+msgstr "Celkem za aktuální hru"
+
+#: .\poeg\templates\finish_game.html:42
+msgid "Total time with penalties"
+msgstr "Celkový čas s penalizací"
+
+#: .\poeg\templates\gopay_return.html:9
+msgid "Thank you!"
+msgstr ""
+
+#: .\poeg\templates\gopay_return.html:10
+msgid "You just ordered game"
+msgstr ""
+
+#: .\poeg\templates\gopay_return.html:11
+msgid "You can start gameplay <a href=\\"
+msgstr ""
+
+#: .\poeg\templates\gopay_return.html:13
+msgid "Sorry, your order was canceled, please try it again"
+msgstr ""
+
+#: .\poeg\templates\gopay_return.html:16
+msgid "Sorry, something went wrong, please try it again or let us know"
+msgstr ""
+
+#: .\poeg\templates\homepage.html:11
+msgid "Welcome to"
+msgstr "Vítají Vás"
+
+#: .\poeg\templates\homepage.html:72
+msgid ""
+"Explore Prague with our original escape-style outdoor games! Take part in an "
+"adventure mission or discover fairytale places. Check your team with us, "
+"have a fun with friends, or go for an adventure with your kids. You only "
+"need a smartphone or tablet with an Internet connection, where we will leave "
+"you a lot of puzzles, ciphers, mysteries and clues. Little by little, we "
+"will test not only your observations, orientation sense, logical reasoning, "
+"but also wit. The length of the route is always predefined unless you get "
+"lost :). Are you afraid of sudden changes in weather, tiredness, or other "
+"reasons preventing the game finish? Never mind. We are the first in Prague "
+"who has a possibility to pause the game among playing and finish it later. "
+"Can you solve our traps and reach the finish line within the time limit?"
+msgstr ""
+"S našimi originálními outdoorovými hrami ve stylu escape game prozkoumáte "
+"různá zákoutí magického města Prahy, vydáte se na dobrodružné i tajuplné "
+"mise, nebo na pohádková místa, která na vás dýchnou historií. Prověřte s "
+"námi soudržnost vašeho týmu, zabavte se s přáteli, nebo se vydejte za "
+"dobrodružstvím s dětmi. K našim hrám, krom svého mozku a chuti hrát, "
+"potřebujete pouze chytrý telefon nebo tablet s připojením k internetu, na "
+"kterém vám zanecháme spoustu neotřelých hádanek, šifer, záhad a vodítek. "
+"Kousek po kousku otestujeme nejen váš postřeh, orientační smysl, logické "
+"uvažování, ale i důvtip. Délka trasy je vždy předem dána, pokud se ovšem "
+"neztratíte:).  Bojíte se náhlé změny počasí, únavy, nebo jiných důvodů "
+"zabraňujících hru dohrát? Nevadí. Jako první v Praze přinášíme možnost hru "
+"mezi úkoly zapauzovat a dohrát klidně i jiný den. Zvládnete pokořit naše "
+"nástrahy a dostat se do cíle v časovém limitu?"
+
+#: .\poeg\templates\homepage.html:88
+msgid "Three easy steps"
+msgstr "Tři jednoduché kroky"
+
+#: .\poeg\templates\homepage.html:89
+msgid "how to play our games"
+msgstr "jak si zahrát"
+
+#: .\poeg\templates\homepage.html:102
+msgid "Choose a game"
+msgstr "Zvolte hru"
+
+#: .\poeg\templates\homepage.html:103
+msgid "Choose a game by story, length or game time"
+msgstr "Vyberte si hru podle tématu, délky, nebo časové náročnosti"
+
+#: .\poeg\templates\homepage.html:113
+msgid ""
+"Choose your sign up (or sign up via Facebook), pay for game or apply your "
+"voucher"
+msgstr ""
+"Zvolte si přihlašovací údaje (nebo se přihlaste přes Facebook), zaplaťte "
+"hru, nebo použijte Váš voucher"
+
+#: .\poeg\templates\homepage.html:122
+msgid "Play"
+msgstr "Hrajte"
+
+#: .\poeg\templates\homepage.html:123
+msgid "And enjoy"
+msgstr "A bavte se"
+
+#: .\poeg\templates\homepage.html:160
+msgid "You walked with us"
+msgstr "Nachodili jste s námi"
+
+#: .\poeg\templates\homepage.html:165
+msgid "hodin"
+msgstr "hours"
+
+#: .\poeg\templates\homepage.html:166
+msgid "Total game play"
+msgstr "Celkový herní čas"
+
+#: .\poeg\templates\homepage.html:172
+msgid "Games"
+msgstr "Hry"
+
+#: .\poeg\templates\homepage.html:187
+msgid "Want news about our games?"
+msgstr "Chcete dostávat novinky a informace o nových hrách?"
+
+#: .\poeg\templates\homepage.html:193
+msgid "Leave us you email..."
+msgstr "Zanechte nám Váš email..."
+
+#: .\poeg\templates\homepage.html:195
+msgid "I want to stay in touch"
+msgstr "Chci zůstat v obraze"
+
+#: .\poeg\templates\start_game.html:9
+msgid "Do you want to start your game?"
+msgstr "Opravdu chcete začít Vaši hru?"
+
+#: .\poeg\templates\start_game.html:12
+msgid ""
+"Once you start your game, we measure your time. After finishing each quest, "
+"gameplay is stopped, so you can have a rest and enjouy beauties of Prague. "
+"If you don´t finish quest, we keep counting your time!"
+msgstr ""
+"Jakmile hru spustíte, započneme Vám měřit herní čas. Po úspěšném splnění "
+"každého úkolu bude časomíra zastavena, můžete si odpočinout a porozhlédnout "
+"se po krásách Prahy. Pokud však budete mít úkol rozehraný a nedokončený, "
+"časomíra Vám stále běží!"
+
+#: .\poeg\templates\start_game.html:15
+msgid "Start game"
+msgstr "Spustit hru"

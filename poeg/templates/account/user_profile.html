@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load  bootstrap3 %}
+
+{% block content %}
+	<div class="content-wrap">
+		<div class="container">
+			<h1>{% trans "Welcome" %} {{ user }}</h1>
+			{% if user.is_dealer %}
+				<h3>{% trans "Generate new Vouchers" %}</h3>
+				<form action="." method="post" role="form">
+					{% csrf_token %}
+					{% bootstrap_form form %}
+					{% buttons %}
+						<button class="button button-rounded button-green">{% trans "Generate" %}</button>
+					{% endbuttons %}
+				</form>
+
+                <h3>Test editace voucherů</h3>
+				<form action="{% url 'voucher_update' %}" method="post" role="form">
+					{% csrf_token %}
+                    <input type="text" name="voucher">
+                    <input type="text" name="note">
+                    <input type="checkbox" name="given">
+
+					{% buttons %}
+						<button class="button button-rounded button-green">Send request</button>
+					{% endbuttons %}
+				</form>
+
+
+				{% if user.voucher_set.all %}
+					<h3>Your vouchers</h3>
+					<table class="table" style="text-align: left">
+						<thead>
+							<tr>
+								<th>{% trans "voucher code" %}</th>
+								<th class="text-center">{% trans "used count" %}</th>
+								<th class="text-right">{% trans "discount" %}</th>
+								<th class="text-right">{% trans "target price" %}</th>
+                                <th class="text-right">{% trans "given to customer" %}</th>
+                                <th class="text-right">{% trans "note" %}</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for v in user.voucher_set.all %}
+								<tr>
+									<td><code>{{ v.voucher }}</code></td>
+									<td class="text-center">{{ v.used_count }}</td>
+									<td class="text-right">{{ v.discount.amount|default_if_none:"---" }}</td>
+									<td class="text-right">{{ v.target_price.amount|default_if_none:"---" }}</td>
+                                    <td class="text-right">{{ v.note }}</td>
+                                    <td class="text-right">{% if v.given %}A{% else %}N{% endif %}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+
+					</table>
+				{% endif %}
+			{% else %}
+				<h3>{% trans "Your profile" %}</h3>
+				<form action="." method="post" role="form">
+					{% csrf_token %}
+					{% bootstrap_form form %}
+					{% buttons %}
+						<button class="button button-rounded button-green">{% trans "Save changes" %}</button>
+						<a href="{% url "account_set_password" %}" class="button button-rounded button-black">
+							{% trans "I want to change my password" %}...
+						</a>
+					{% endbuttons %}
+				</form>
+
+			{% endif %}
+			{% if user.activegame_set.all %}
+				<h3>{% trans "Your games" %}</h3>
+				<table class="table" style="text-align: left">
+					<tr>
+						<th>{% trans "Game name" %}</th>
+						<th>{% trans "payment" %}</th>
+						<th>{% trans "activation date" %}</th>
+						<th>{% trans "active" %}</th>
+						<th class="text-center">{% trans "play" %}/{% trans "continue" %}</th>
+					</tr>
+					{% for activegame in user.activegame_set.all %}
+						<tr>
+							<td>{{ activegame.game.name }}</td>
+							<td>{{ activegame.get_activation_type_display }}</td>
+							<td>{{ activegame.ts_activated|date:"j.n.Y H:i" }}</td>
+							<td>
+								{% if activegame.is_active %}{% trans "Y" %}
+								{% else %}{% trans "N" %}
+								{% endif %}
+							</td>
+							<td class="text-center">
+								{% if activegame.is_active %}
+									{% if not activegame.started %}
+										<a href="{% url "start_game" active_game_id=activegame.id %}" class="btn btn-primary">{% trans "start" %}</a>
+									{% else %}
+										<a href="{% url "active_quest" active_game_id=activegame.id %}" class="btn btn-primary">{% trans "continue" %}</a>
+									{% endif %}
+								{% else %}
+									{% trans "game finished" %}
+								{% endif %}
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+			{% else %}
+				<h3>{% trans "You don´t have any available game" %}</h3>
+				<p>
+					<a class="button button-green button-rounded" href="{% url "homepage" %}#hp_game_list">{% trans "Let´s play" %}!</a>
+				</p>
+
+			{% endif %}
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+Django~=1.11.0
+pytz==2017.2
+Pillow~=4.2.0
+psycopg2~=2.7.0
+django-allauth~=0.32.0
+
+# easier staticfiles
+whitenoise~=3.3.0
+brotlipy~=0.7.0
+
+#zpracovani ACTIVATION_TYPE_CHOICES
+django-model-utils~=3.0.0
+
+raven~=6.1.0
+django-bootstrap3~=9.0.0
+
+#money
+py-moneyed~=0.7.0
+django-money~=0.11.0
+
+#internationalization
+django-parler~=1.8.0
+
+# gopay integration
+pypandoc~=1.4.0
+gopay~=1.1.0
+
+#django REST FW
+djangorestframework
+markdown
+django-parler-rest
+

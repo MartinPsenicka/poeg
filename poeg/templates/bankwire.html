@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static i18n %}
+{% block content %}
+    <div class="content-wrap">
+        <div class="container">
+            <h1>{% trans "Thank you for ordering game" %} {{ ordered_game.game_name }}!</h1>
+            <h3>{% trans "Payment information" %}:</h3>
+            <p>{% trans "Account number" %}: 2301218731/2010<br>
+                {% trans "Variable (reference number)" %}: {{ ordered_game.variable_symbol }}<br>
+                Amount: {{ ordered_game.price }}<br><br>
+                {% trans "We also send you payment information on your email. After processing your payment we will let you know, you can find your game in your user profile after." %}
+
+            </p>
+{#            {{ ordered_game }}#}
+
+        </div>
+    </div>
+{% endblock %}

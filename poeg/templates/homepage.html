@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load static core_tags %}
+{% block content %}
+			<div class="content-wrap" style="/*background-image:  url(hp_images/hp_bg.png);background-repeat:  no-repeat; background-size: cover; background-position: center bottom; background-c*/"  >
+
+				<!--div class="container clearfix"-->
+					<div class=" clearfix"></div>
+					<div class="divcenter center " style=" margin-bottom: 0px ;  ">
+
+						<h1 style="margin-bottom: 0px;"><span style="color: #000000; ">{% trans "Welcome to" %} </span><span>Prague Outdoor Escape Games</span>.</h1>
+
+					</div>
+					<div class=" clearfix"></div>
+
+
+			</div>
+<!--div class="container center"><p style="color:#00cc00; font-size: 24px;">3...2...1...Léto je oficiálně tady!</p><p style="color:#00cc00; font-size: 18px;">Vyražte to oslavit do ulic s některou z našich her :-)
+Protože léto milujeme, jako dárek rozdáváme slevy - hru za 999 místo 1600 Kč. Vydejte se do pražských ulic, jsou tu nejdelší dny v roce, a tak na naše úkoly uvidíte opravdu dlouho ;)
+                         </p>
+</div-->
+
+		<section id="slider" class="boxed-slider">
+
+			<div class="container clearfix">
+
+				<div id="oc-slider" class="owl-carousel carousel-widget" data-margin="0" data-items="1" data-animate-in="zoomIn" data-speed="450" data-animate-out="fadeOut">
+
+
+
+						 <div class="content-wrap" style="min-height: 400px; ;background-image:  url(/static/hp_images/slider1.png);background-repeat:  no-repeat; background-size: cover; background-position: center bottom; position: relative;"  >
+						 <div class="center" style="top: 100px; position: absolute; width: 100%; margin: 0 auto; "><h1 style="color:#00cc00;text-shadow: 1px 1px 0px #00b000; font-size: 42px;">&nbsp;</h1>
+
+
+                         </div>
+				<!--div class="container clearfix"-->
+
+						<div class="center" style="bottom: 30px; position: absolute; width: 100%; margin: 0 auto; ">
+						<!--img class="bottommargin" src="images/logo-side.png" alt=""-->
+						<a href="#hp_game_list" class="button button-3d button-large ">{% trans "Our games" %}</a>
+						<!--a href="#" class="button button-3d button-large">Chci si zahrát</a-->
+						</div>
+
+
+
+						</div>
+
+
+
+
+
+				</div>
+
+			</div>
+
+		</section>
+
+
+<div id="wrapper" class="clearfix">
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap container" style="/*background-image:  url(hp_images/hp_bg.png);background-repeat:  no-repeat; background-size: cover; background-position: center bottom; background-c*/"  >
+
+				<!--div class="container clearfix"-->
+					<div class=" clearfix"></div>
+					<div class="divcenter center clearfix" style=" margin-bottom: 0px;  ">
+						<!--img class="bottommargin" src="images/logo-side.png" alt=""-->
+
+						<div class="clearfix"></div>
+						<p style="color: #000000; text-shadow: 0px 0px 0px #bcbcbc; text-align: justify;line-height: 2em; font-family: 'Arial', sans-serif; font-weight: 400; font-size: 16px;text-indent: 2em;">{% trans "Explore Prague with our original escape-style outdoor games! Take part in an adventure mission or discover fairytale places. Check your team with us, have a fun with friends, or go for an adventure with your kids. You only need a smartphone or tablet with an Internet connection, where we will leave you a lot of puzzles, ciphers, mysteries and clues. Little by little, we will test not only your observations, orientation sense, logical reasoning, but also wit. The length of the route is always predefined unless you get lost :). Are you afraid of sudden changes in weather, tiredness, or other reasons preventing the game finish? Never mind. We are the first in Prague who has a possibility to pause the game among playing and finish it later. Can you solve our traps and reach the finish line within the time limit?" %}
+						</p>
+						<div class="clearfix"></div>
+
+					</div>
+					<div class=" clearfix"></div>
+
+
+			</div>
+
+
+				<div class="section notopmargin noborder nobottommargin" >
+
+					<div class="container clearfix">
+
+						<div class="heading-block center "><!--nobottommargin-->
+							<h2>{% trans "Three easy steps" %}</h2>
+							<span>{% trans "how to play our games" %}</span>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="container clearfix">
+					<div class="col_one_third">
+						<div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
+							<div class="fbox-icon">
+								<a href="#"><i class="icon-params"></i></a>
+							</div>
+							<h3>{% trans "Choose a game" %}</h3>
+                            <p>{% trans "Choose a game by story, length or game time" %}</p>
+						</div>
+					</div>
+
+					<div class="col_one_third">
+						<div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="200">
+							<div class="fbox-icon">
+								<a href="#"><i class="icon-star2"></i></a>
+							</div>
+							<h3>{% trans "Sign up" %}</h3>
+							<p>{% trans "Choose your sign up (or sign up via Facebook), pay for game or apply your voucher" %}</p>
+						</div>
+					</div>
+
+					<div class="col_one_third col_last">
+						<div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="400">
+							<div class="fbox-icon">
+								<a href="#"><i class="icon-heart2"></i></a>
+							</div>
+							<h3>{% trans "Play" %}</h3>
+							<p>{% trans "And enjoy" %} ;)</p>
+						</div>
+					</div>
+						<div class="line"></div>
+					<div class="clear"></div>
+				</div>
+			<div class="container clearfix">
+			<div class="content-wrap" style="" >
+
+
+						<a name="hp_game_list"></a>
+					<div class="row real-estate-properties clearfix">
+
+
+{% for game in games %}
+	{% render game.homepageblock %}
+	{% render game.modalblock %}
+{% endfor %}
+
+
+
+
+
+
+
+					</div>
+
+				</div>
+				<div class=" clearfix"></div>
+				<div class="content-wrap" style="" >
+					<!div class="section notopborder topmargin-sm bottommargin-sm noborder nobg">
+
+						<div class="container clearfix">
+
+							<div class="col_one_third nobottommargin center" data-animate="bounceIn">
+							<i class="i-plain i-xlarge divcenter nobottommargin icon-code"></i>
+							<div class="counter counter-lined"><span data-from="0" data-to="2532" data-refresh-interval="50" data-speed="2000"></span> km</div>
+							<h5>{% trans "You walked with us" %}</h5>
+							</div>
+
+							<div class="col_one_third nobottommargin center" data-animate="bounceIn" data-delay="200">
+							<i class="i-plain i-xlarge divcenter nobottommargin icon-magic"></i>
+							<div class="counter counter-lined"><span data-from="0" data-to="1697" data-refresh-interval="100" data-speed="2500"></span> {% trans "hodin" %}</div>
+							<h5>{% trans "Total game play" %}</h5>
+							</div>
+
+							<div class="col_one_third nobottommargin center col_last" data-animate="bounceIn" data-delay="400">
+							<i class="i-plain i-xlarge divcenter nobottommargin icon-file-text"></i>
+							<div class="counter counter-lined"><span data-from="0" data-to="5" data-refresh-interval="25" data-speed="3500"></span></div>
+							<h5>{% trans "Games" %}</h5>
+							</div>
+
+
+						</div>
+
+					</div>
+
+
+
+
+				<div class="section nobottommargin">
+					<div class="container clearfix">
+
+						<div class="heading-block center">
+							<h3>{% trans "Want news about our games?" %}</h3>
+						</div>
+						<div class="widget">
+							<form action="." role="form" method="post" class="nobottommargin">{% csrf_token %}
+								<div class="input-group input-group-lg divcenter" style="max-width:600px;">
+									<span class="input-group-addon"><i class="icon-email2"></i></span>
+									<input type="email" name="email" class="form-control required email" placeholder="{% trans "Leave us you email..." %}">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="submit">{% trans "I want to stay in touch" %}</button>
+									</span>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+			</div>
+
+{% endblock %}

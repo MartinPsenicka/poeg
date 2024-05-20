@@ -1,0 +1,54 @@
+{% load socialaccount bootstrap3 %}
+
+<div id="side-panel">
+
+	<div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="icon-line-cross"></i></a></div>
+
+	<div class="side-panel-wrap">
+
+		<div class="widget clearfix">
+
+			{% if user.is_authenticated %}
+				<h2>Vítejte {% firstof user.teamname user %}</h2>
+				<div class="col_full nobottommargin">
+					<a href="{% url "my_profile" %}" class="button button-black button-rounded t400">Můj profil</a>
+				</div>
+				<div class="col_full nobottommargin">
+					<form method="post" action="{% url "account_logout" %}">{% csrf_token %}
+						<button class="button button-rounded t400" id="login-form-submit"
+						        name="login-form-submit" value="login">Odhlásit
+						</button>
+					</form>
+				</div>
+
+			{% else %}
+				<h4 class="t400">Přihlášení:</h4>
+				<form method="post" id="login-form" class="nobottommargin" action="{% url "account_login" %}" role="form">
+					{% csrf_token %}
+					{% bootstrap_form login_form %}
+					{% buttons %}
+						<button class="button button-rounded t400 " id="login-form-submit"
+						        name="login-form-submit" value="login">Přihlásit
+						</button>
+					{% endbuttons %}
+				</form>
+				<p>
+					<a href="{% url "account_reset_password" %}">Zapomenuté heslo...</a>
+				</p>
+				<h4 class="t400">Nebo se <a href="{% url "account_signup" %}">registrujte</a></h4>
+
+
+				<!--h4 class="t400">Nebo se přihlašte přes:</h4-->
+				<!--a class="button button-rounded t400 btn-block center si-colored noleftmargin si-facebook" href="{% provider_login_url "facebook" method="oauth2" %}">Facebook</a-->
+
+				<!--a href="#"
+               class="button button-rounded t400 btn-block center si-colored noleftmargin si-gplus">Google</a-->
+
+			{% endif %}
+
+
+		</div>
+
+	</div>
+
+</div>

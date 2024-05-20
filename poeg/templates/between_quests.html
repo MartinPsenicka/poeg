@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load core_tags %}
+
+{% block content %}
+	<div class="content-wrap"
+	     style="/*background-image:  url(hp_images/hp_bg.png);background-repeat:  no-repeat; background-size: cover; background-position: center bottom; background-c*/">
+		<div class="divcenter center " style=" margin-bottom: 0px ;  ">
+			{#            <h1>{{ next_quest }} active_quest</h1>#}
+			<h2>{% trans "YES! You finished quest in game" %} {{ last_game_log.active_game.game.name }}!</h2>
+
+			<div class="well well-lg nobottommargin">
+				{% render last_game_log.quest.description %}
+			</div>
+
+			<div class="well well-lg nobottommargin">
+				{% render last_game_log.quest.after_quest %}
+			</div>
+
+			<div class="well well-lg nobottommargin">
+				{% trans "Time spent with quest" %}:
+				{{ last_game_log.spent_time }}
+			</div>
+
+			<div class="well well-lg nobottommargin">
+				{% trans "Penalty" %}:
+				{{ last_game_log.spent_penalty_time }}
+			</div>
+
+			<div class="well well-lg nobottommargin">
+				{% trans "Time spent with your game" %}:
+				{{ last_game_log.active_game.spent_times.time_clean }}
+			</div>
+
+			<div class="row">
+				{% if last_game_log.active_game.next_quest %}
+					<form action="{% url "active_quest" active_game_id=last_game_log.active_game_id %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" value="" name="activate_next_quest">
+
+						<button class="button button-desc button-3d button-rounded button-green
+
+                    center" type="submit">{% trans "Let´s go for next quest!" %}
+						</button>
+					</form>
+				{% else %}
+					<a href="{% url "finish_game" active_game_id=last_game_log.active_game_id %}"
+					   class="button button-desc button-3d button-rounded button-green center">{% trans "End game" %}</a>
+				{% endif %}
+			</div>
+
+
+		</div>
+	</div>
+
+{% endblock %}

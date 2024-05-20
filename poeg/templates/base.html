@@ -1,0 +1,778 @@
+{% load bootstrap3 static i18n %}
+
+<!-- #00c100  -->
+
+<!DOCTYPE html>
+<html dir="ltr" lang="{{ LANGUAGE_CODE }}">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="author" content="SemiColonWeb"/>
+
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
+          rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "css/dark.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "css/animate.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "css/real-estate.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "css/responsive.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "css/font-icons.css" %}" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+    <!-- Document Title
+    ============================================= -->
+    <title>Prague Outdoor Escape Games</title>
+
+    <style>
+        #mainselection select {
+            border: 0;
+            color: #00c100;
+            background: transparent;
+        {#   font-size: 20px;#}{#   font-weight: bold;#}{#   padding: 2px 10px;#} width: 80px;
+            height: 2.5em;
+            *width: 60px;
+            *background: #cccccc;
+            -webkit-appearance: none;
+            height: 22px;
+        }
+
+        #mainselection {
+            overflow: hidden;
+            width: 50px;
+            height: 22px;
+            padding-top: 29px;
+            padding-bottom: 20px;
+            vertical-align: middle;
+            -moz-border-radius: 9px 9px 9px 9px;
+            -webkit-border-radius: 9px 9px 9px 9px;
+            font-size: 13px;
+        {#   border-radius: 9px 9px 9px 9px;#}{#   box-shadow: 1px 1px 11px #330033;#}{#   background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;#}
+        }
+
+        .revo-slider-emphasis-text {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            font-family: 'Raleway', sans-serif;
+            padding: 15px 20px;
+            border-top: 2px solid #FFF;
+            border-bottom: 2px solid #FFF;
+        }
+
+        .revo-slider-desc-text {
+            font-size: 20px;
+            font-family: 'Lato', sans-serif;
+            width: 650px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .revo-slider-caps-text {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .tp-video-play-button {
+            display: none !important;
+        }
+
+        .tp-caption {
+            white-space: nowrap;
+        }
+
+    </style>
+
+</head>
+
+<body class="stretched side-push-panel">
+
+
+{% include 'inc/sidebar.html' %}
+
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper2" class="clearfix">
+
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
+
+        <div id="header-wrap">
+
+            <div class="container clearfix">
+
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                <!-- Logo
+                ============================================= -->
+                <div id="logo">
+                    <a href="/" class="standard-logo" data-dark-logo="{% static "images/logo-dark.png" %}"><img
+                            src="{% static "hp_images/logo.png" %}" alt="Prague Outdoor Escape Games"></a>
+                    <a href="/" class="retina-logo" data-dark-logo="{% static "images/logo-dark@2x.png" %}"><img
+                            src="{% static "hp_images/logo.png" %}" alt="Prague Outdoor Escape Games"></a>
+                </div><!-- #logo end -->
+
+                <!-- Primary Navigation
+                ============================================= -->
+                <nav id="primary-menu">
+
+                    <ul>
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+
+                        <li id="mainselection">
+
+
+                            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+
+                                <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                                {#                        <i class="icon-globe"></i>#}
+                                <select name="language" onchange="this.form.submit()">
+
+                                    {% get_language_info_list for LANGUAGES as languages %}
+                                    {% for language in languages %}
+                                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                                selected{% endif %}>
+                                            {#   {{ language.name_local }}#}
+                                            {{ language.code }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="Go"/>
+                            </form>
+
+
+                        </li>
+                        <li><a href="#" class="side-panel-trigger">
+                            {% if user.is_authenticated %}
+                                {{ user }}
+                            {% else %}
+                                Login/register
+                            {% endif %}
+
+
+                        </a></li>
+                    </ul>
+
+
+                </nav><!-- #primary-menu end -->
+
+            </div>
+
+        </div>
+
+    </header><!-- #header end -->
+
+</div>
+
+{# MESSAGES #}
+{% if messages %}
+<div class="content-wrap">
+<div class="divcenter center container">
+	{% bootstrap_messages %}
+</div>
+</div>
+
+{% endif %}
+{% block content %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer
+============================================= -->
+<footer id="footer" class="dark" style="margin-top: 50px !important;">
+
+    <div class="container">
+
+        <!-- Footer Widgets
+        ============================================= -->
+        <div class="footer-widgets-wrap clearfix">
+
+            <div class="col_two_third">
+
+                <div class="col_one_third">
+
+                    <div class="widget clearfix">
+
+
+                        <div style="background: url({% static "images/world-map.png" %}) no-repeat center center; background-size: 100%;">
+                            <address>
+                                <h4>Poeg, s.r.o.</h4>
+                                <strong>Sídlo:</strong><br>
+                                Vinařská 1134/7<br>
+                                Holešovice<br>
+                                170 00 Praha 7<br>
+                                IČO: 06084427<br>
+                                Spisová značka: C 275845 vedená u Městského soudu v Praze<br>
+                            </address>
+                            <abbr title="Email Address"><strong>Email:</strong></abbr> info@poeg.cz<br>
+                            <abbr title="{% trans "Technical issues" %}"><strong>Email:</strong></abbr> support@poeg.cz
+                            <address>
+                                <strong>{% trans "Bank account" %}:</strong><br>
+                                <abbr title="účet"><strong>{% trans "Account number" %}: </strong>2301218731/2010</abbr><br>
+                                <abbr title="IBAN"><strong>IBAN: </strong>CZ7820100000002301218731</abbr><br>
+                                <abbr title="BIC"><strong>BIC: </strong>FIOBCZPPXXX</abbr><br>
+                            </address>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col_one_third">
+
+                    <div class="widget widget_links clearfix">
+
+                        <h4>{% trans "Informations" %}</h4>
+
+                        <ul>
+{#                            <li><a href="">{% trans "Wrote about us" %}</a></li>#}
+                            <li><a href="/kontakt/">{% trans "Contacts" %}</a></li>
+                            <li><a href="https://poeg.cz/#hp_game_list">{% trans "Our games" %}</a></li>
+{#                            <li><a href="">{% trans "Our team" %}</a></li>#}
+                            <li data-toggle="modal" data-target="#hpModalTerms">
+                                <a><span>{% trans "Terms and conditions" %}</span></a></li>
+                            <li data-toggle="modal" data-target="#hpModalCookies"><a><span>{% trans "Cookies" %}</a></span>
+                            </li>
+                            <li data-toggle="modal" data-target="#hpModalPersonal">
+                                <a><span>{% trans "Personal data usage" %}</span></a></li>
+{#                            <li><a href="">{% trans "Cooperation" %}</a></li>#}
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="col_one_third col_last">
+
+                    <div class="widget clearfix">
+                        <h4>{% trans "News" %}</h4>
+
+                        								<div id="post-list-footer">
+                        									<div class="spost clearfix">
+                        										<div class="entry-c">
+                        											<div class="entry-title">
+                        												<h4>Máme hlášeny stavební práce na trase hry Smlouva s peklem a s tím spojené překrytí indicií jednoho z úkolů lešením, doporučujeme s hraním tohoto scénáře počkat do odvolání tohoto upozornění!</h4>
+                        											</div>
+{#                        											<ul class="entry-meta">#}
+{#                        												<li>10th July 2014</li>#}
+{#                        											</ul>#}
+                        										</div>
+                        									</div>
+                        {##}
+                        {#									<div class="spost clearfix">#}
+                        {#										<div class="entry-c">#}
+                        {#											<div class="entry-title">#}
+                        {#												<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>#}
+                        {#											</div>#}
+                        {#											<ul class="entry-meta">#}
+                        {#												<li>10th July 2014</li>#}
+                        {#											</ul>#}
+                        {#										</div>#}
+                        {#									</div>#}
+                        {##}
+                        {#									<div class="spost clearfix">#}
+                        {#										<div class="entry-c">#}
+                        {#											<div class="entry-title">#}
+                        {#												<h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>#}
+                        {#											</div>#}
+                        {#											<ul class="entry-meta">#}
+                        {#												<li>10th July 2014</li>#}
+                        {#											</ul>#}
+                        {#										</div>#}
+                        {#									</div>#}
+                        								</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col_one_third col_last">
+
+                <div class="widget clearfix" style="margin-bottom: -20px;">
+
+                    <div class="row">
+
+                        <div class="col-md-6 bottommargin-sm">
+                            <div class="counter counter-small"><span data-from="0" data-to="1697"
+                                                                     data-refresh-interval="80" data-speed="3000"
+                                                                     data-comma="true"></span></div>
+                            <h5 class="nobottommargin">Celkový herní čas</h5>
+                        </div>
+
+                        <div class="col-md-6 bottommargin-sm">
+                            <div class="counter counter-small"><span data-from="0" data-to="317"
+                                                                     data-refresh-interval="50" data-speed="2000"
+                                                                     data-comma="true"></span></div>
+                            <h5 class="nobottommargin">Odehraných her</h5>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="widget clearfix">
+                    <h5><strong>{% trans "Sign up" %}</strong> {% trans "for news about our games!" %}</h5>
+                    <form action="." role="form" method="post" class="nobottommargin">{% csrf_token %}
+                        <div class="input-group divcenter">
+                            <span class="input-group-addon"><i class="icon icon-email2"></i></span>
+                            <input type="email" id="email" name="email" class="form-control required email"
+                                   placeholder="{% trans "Leave us your email..." %}">
+                            <span class="input-group-btn">
+										<button class="btn btn-success" type="submit">{% trans "Sign up" %}</button>
+									</span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="widget clearfix" style="margin-bottom: -20px;">
+
+                    <div class="row">
+
+                        <div class="col-md-6 clearfix bottommargin-sm">
+                            <a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin"
+                               style="margin-right: 10px;">
+                                <i class="icon-facebook"></i>
+                                <i class="icon-facebook"></i>
+                            </a>
+                            <a href="https://www.facebook.com/POEGs.r.o/" target="_blank">
+                                <small style="display: block; margin-top: 3px;"><strong>{% trans "Our" %} </strong><br>Facebook
+                                </small>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div><!-- .footer-widgets-wrap end -->
+
+    </div>
+
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights">
+
+        <div class="container clearfix">
+
+            <div class="col_half">
+                Copyrights &copy; 2017 POEG, s.r.o., {% trans "All rights reserved" %}<br>
+                <div class="copyright-links"><a href="/obchodni-podminky/">{% trans "Terms and conditions" %}</a> / <a
+                        href="" data-toggle="modal" data-target="#hpModalPersonal">{% trans "Privacy information" %}</a>
+                </div>
+            </div>
+
+
+            <div class="col_half col_last tright">
+                <div class="fright clearfix">
+                    <a href="https://www.facebook.com/POEGs.r.o/" target="_blank"
+                       class="social-icon si-small si-borderless si-facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+
+                    <a href="#" class="social-icon si-small si-borderless si-twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
+
+
+                </div>
+
+                <div class="clear"></div>
+
+                <i class="icon-envelope2"></i> info@poeg.cz
+            </div>
+
+        </div>
+
+    </div><!-- #copyrights end -->
+
+</footer><!-- #footer end -->
+
+</div><!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="hpModalTerms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Obchodní podmínky pro internetové aplikace</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Vzájemná práva a povinnosti Uživatele a Provozovatele pramenící z užívání </p>
+                    <p>Aplikace se řídí těmito obchodními podmínkami:</p>
+                    <p>1 Definice</p>
+                    <p>1.1 V těchto obchodních podmínkách:</p>
+                    <p>1.1.1 „Provozovatel“ je Společnost Poeg, s.r.o. , IČO: 06084427 , se sídlem Vinařská 7, 170 00,
+                        Praha 7.</p>
+                    <p>1.1.2 „Aplikace“ znamená internetovou aplikaci s názvem Prague outdoor escape games , mezi jejíž
+                        hlavní funkcionality patří provozování outdoorových únikových her a která je dostupná z
+                        internetové adresy www.poeg.cz.</p>
+                    <p>1.1.3 „VOP“ znamená tyto Všeobecné obchodní podmínky.</p>
+                    <p>1.1.4 „Smlouva“ znamená smlouvu uzavřenou mezi Uživatelem a Provozovatelem, jejímž předmětem je
+                        poskytnutí Licence k užívání Aplikace Uživateli za podmínek uvedených v těchto VOP.</p>
+                    <p>1.1.5 „Licence“ znamená nevýhradní licenci k užívání Aplikace za podmínek uvedených v těchto
+                        VOP.</p>
+                    <p>1.1.6 „Uživatel“ znamená jakoukoliv právnickou nebo fyzickou osobu odlišnou od Provozovatele,
+                        která užívá Aplikaci.</p>
+                    <p>1.1.7 „Uživatelský účet“ znamená neveřejnou část Aplikace, která je uživateli přístupná po zadání
+                        Přihlašovacích údajů.</p>
+                    <p>1.1.8 „Přihlašovací údaje“ znamenají unikátní kombinaci přihlašovacího jména Uživatele a hesla
+                        zvoleného Uživatelem, které Uživatel uloží do databáze
+                        Aplikace při zřizování Uživatelského účtu prostřednictvím Aplikace a/nebo Uživateli automaticky
+                        vygenerovaného Aplikací.</p>
+                    <p>2 Proces uzavření smlouvy o užívání Aplikace</p>
+                    <p>2.1 Zobrazení tlačítka s názvem „ zaplatit “ v uživatelském prostředí Aplikace je návrhem na
+                        uzavření Smlouvy ze strany Provozovatele.</p>
+                    <p>2.2 Kliknutí Uživatele na tlačítko „ zaplatit “ je bezvýhradným přijetím návrhu na uzavření
+                        Smlouvy ze strany Uživatele a tímto úkonem je uzavřena Smlouva.</p>
+                    <p>2.3 Kliknutím na pole (tzv. checkbox), které obsahuje popis ve znění „ zaplatit “ a následným
+                        kliknutím na tlačítko ve smyslu 2.2 Uživatel vyjadřuje souhlas s těmito VOP.</p>
+                    <p>2.4 Uzavřením Smlouvy vstupují v účinnost následující ustanovení těchto VOP.</p>
+
+                    <p>3 Užívání Aplikace</p>
+                    <p>3.1 Provozovatel uděluje Uživateli Licenci v rozsahu a za podmínek uvedených v uživatelském
+                        prostředí Aplikace , zejména uvedených u daného typu Uživatelského účtu.</p>
+                    <p>3.2 Uživatel se za udělení Licence zavazuje Provozovateli zaplatit odměnu ve výši uvedené v
+                        uživatelském prostředí Aplikace.</p>
+                    <p>3.3 Provozovatel má právo poskytnout plnění Smlouvy (např. zpřístupnit danou část nebo
+                        funkcionalitu Aplikace) až v momentě, kdy dojde k zaplacení odměny za poskytnutí Licence a
+                        nezaplatí-li Uživatel za Licenci odměnu v plné výši v Provozovatelem stanovené lhůtě, jinak
+                        ihned, ruší se Smlouva bez dalšího od počátku.
+                    <p>3.4 Provozovatel je po uplynutí doby Licence oprávněn plně a/nebo částečně znepřístupnit
+                        Uživatelský účet Uživateli.</p>
+                    <p>3.5 Uživatel má právo zřídit více než jeden Uživatelský účet.</p>
+                    <p>3.6 Uživatel nemá právo udělit třetí osobě podlicenci k užívání Aplikace.</p>
+                    <p>3.7 Veškerá finanční plnění realizovaná prostřednictví Aplikace nebo platební brány propojené s
+                        Aplikací, se považují za zaplacené připsáním celé příslušné částky na příslušný bankovní účet
+                        Provozovatele.</p>
+                    <p>3.8 Provozovatel má právo Aplikaci nebo její část kdykoliv odstavit, změnit a/nebo ji
+                        znepřístupnit z příslušné internetové adresy, a to z jakéhokoliv důvodu.</p>
+                    <p>3.9 Uživatel má právo na užívání Aplikace za podmínek Smlouvy v aktuální verzi dostupné z
+                        příslušné internetové adresy.</p>
+                    <p>3.10 Uživatel se zavazuje při užívání Aplikace jednat tak, aby jemu ani Provozovateli užíváním
+                        Aplikace nevznikla žádná škoda.</p>
+
+                    <p>4 Databáze</p>
+                    <p>4.1 Uživatel nemá právo prostřednictvím Aplikace strojově (zejm. pomocí tzv. softwarových robotů)
+                        vytěžovat databázi spojenou s Aplikací.</p>
+                    <p>4.2 Uživatel a Provozovatel tímto sjednávají, že jakékoliv údaje vložené Uživatelem do databáze
+                        Aplikace jsou části databáze shromážděné Provozovatelem a stávají se součástí databáze
+                        Provozovatele, aniž by Uživateli jeho jednáním popsaným v tomto odstavci vzniklo jakékoliv právo
+                        k databázi Aplikace.</p>
+                    <p>4.3 Uživatel bere na vědomí, že po dokončení hry není možno hrát znovu. V případě zájmu je
+                        možnost hru znovu zakoupit.</p>
+                    <p>4.4 Provozovatel si vyhrazuje právo náplně hry měnit i bez upozornění uživatelů a to i v případě,
+                        že hra již byla zakoupena a nebyla spuštěna. Uživatel bere na vědomí, že outdoorové únikové hry
+                        mohou vyžadovat občasný zásah do trasy, délky hry i úkolů.</p>
+                    <p>4.5 Smluvní strany jsou si vědomy, shodně prohlašují a činí nesporným, že Aplikace splňuje
+                        podmínky ust. § 562 odst. 2 Občanského zákoníku, tedy že záznamy údajů v Aplikaci a její
+                        databázi jakožto elektronickém systému jsou spolehlivé a jsou prováděny systematicky a posloupně
+                        a jsou chráněny proti změnám.</p>
+
+                    <p>5 Osobní údaje a cookies</p>
+                    <p>5.1 Souhlas Uživatele s užíváním souborů Cookies Provozovatelem uvedený v příloze č. 1 těchto VOP
+                        tvoří součást Smlouvy.</p>
+                    <p>5.2 Souhlas Uživatele s poskytnutím osobních údajů Provozovateli uvedený v příloze č. 2 těchto
+                        VOP tvoří součást Smlouvy.</p>
+
+                    <p>6 Odpovědnost za škodu</p>
+                    <p>6.1 Ustanovení toho článku VOP se nevztahují na spotřebitele.</p>
+                    <p>6.2 Uživatel se tímto výslovně vzdává práva na náhradu škody od Provozovatele neúmyslně nebo
+                        nikoli z hrubé nedbalosti způsobené Provozovatelem porušením jakékoliv povinnosti Provozovatele
+                        uvedené ve Smlouvě v souvislosti s plněním Smlouvy nebo v těchto VOP.</p>
+                    <p>6.3 Uživatel bere na vědomí, že aplikace slouží především k outdoorovým únikovým hrám, při
+                        kterých je nutno dbát zvýšené opatrnosti. Provozovatel nenese žádnou odpovědnost za škody
+                        způsobené uživatelem, ani za škody vzniklé uživateli.</p>
+                    <p>6.4 Provozovatel nezodpovídá za vnější vlivy jako je zhoršené počasí nebo znepřístupnění určitých
+                        tras.</p>
+                    <p>6.5 Pokud z důvodu oprav a uzavření trasy nebude možno hrát koupenou hru po dobu delší čtrnácti
+                        dnů, může klient v této době zažádat o výměnu hry. Provozovatel je povinen vyhovět do čtrnácti
+                        dnů od obdržení žádosti, pokud je relevantní.</p>
+
+                    <p>7 Změna VOP</p>
+                    <p>7.1 Uživatel bere na vědomí, že Provozovatel uzavírá Smlouvu v běžném obchodním styku s větším
+                        počtem osob a Smlouvy jsou podle svého charakteru zavazující dlouhodobě k opětovným plněním
+                        stejného druhu s odkazem na tyto VOP. Smluvní strany činí nesporným, že z povahy závazků
+                        Provozovatele podle těchto VOP vyplývá a již před uzavřením Smlouvy vyplývala rozumná potřeba
+                        pozdější změny těchto VOP.</p>
+                    <p>7.2 Uživatel bere na vědomí, že po zahájení hry již nelze smlouvu vypovědět ani v případě změny
+                        VOP.</p>
+                    <p>7.3 Smluvní strany tímto ujednávají, že Provozovatel může tyto VOP v přiměřeném rozsahu změnit, a
+                        zároveň ujednávají, že změna VOP bude Uživateli, jako druhé straně, oznámena prostřednictvím
+                        e-mailové zprávy odeslané na e-mailovou adresu zadanou Uživatelem do Aplikace. Uživatel má v
+                        takovém případě právo změny VOP odmítnout a předmětný závazek mezi ním a Provozovatelem z tohoto
+                        důvodu vypovědět ve výpovědní době jeden (1) kalendářní měsíc, která začne běžet den následující
+                        po odeslání oznámení, o které Smluvní strany tímto shodně prohlašují, že je dostatečná k
+                        obstarání obdobných plnění od jiného subjektu.</p>
+                    <p>7.4 V případě, že dojde k uzavření nové Smlouvy k již existujícímu Uživatelskému účtu (tj. k
+                        obnovení nebo prodloužení Uživatelského účtu), řídí se taková Smlouva VOP ve znění ke dni
+                        uzavření takové Smlouvy.</p>
+
+                    <p>8 Povinné informace pro spotřebitele</p>
+                    <p>8.1 Tento článek VOP podmínek je účinný pouze vůči Uživateli, který je spotřebitelem. Ustanovení
+                        uvedená v tomto článku VOP se nevztahují zejména na podnikatele – živnostníky nebo obchodní
+                        společnosti.</p>
+                    <p>8.2 Provozovatel tímto informuje Uživatele, že:</p>
+
+                    <p>8.2.1 adresa pro doručování písemností Provozovateli je shodná s výše uvedenou adresou sídla
+                        Provozovatele;</p>
+
+                    <p>8.2.2 adresa Provozovatele pro doručování elektronické pošty je info@poeg.cz ;</p>
+                    <p>8.2.3 odměna Provozovatele za Licenci je stanovena včetně všech daní a poplatků a její výše
+                        a/nebo způsob výpočtu je stanoven v Aplikaci;</p>
+                    <p>8.2.4 Uživatel je povinen zaplatit Provozovateli odměnu za Licenci, není-li Licence poskytována
+                        bezúplatně, jedním ze způsobů, který je u příslušné možnosti uveden v uživatelském prostředí
+                        Aplikace;</p>
+                    <p>8.2.5 Uživateli nevznikají náklady na dodání ;</p>
+                    <p>8.2.6 k užívání Aplikace je třeba přístup k síti Internet a internetový prohlížeč. ;</p>
+                    <p>8.2.7 údaje o uzavření Smlouvy vč. těchto obchodních podmínek jsou uloženy v databázi Aplikace a
+                        Uživatel k nim má přístup prostřednictvím Uživatelského účtu.</p>
+                    <p>8.2.8 Uživatel má možnost zjistit chyby kontrolou v Uživatelském účtu;</p>
+                    <p>8.2.9 opravování chyb vzniklých při zadávání dat lze provádět rovněž prostřednictvím Aplikace a
+                        tam, kde to Aplikace neumožňuje, prostřednictvím technické podpory, jejíž kontakt je uveden v
+                        Aplikaci;</p>
+                    <p>8.2.10 Provozovatel dodržuje všechny platné zákony České republiky; žádné další kodexy nejsou pro
+                        Provozovatele závazné;</p>
+                    <p>8.2.11 předmětem Smlouvy není dodání zboží, na Aplikace se tak nevztahují ustanovení zákona o
+                        reklamaci; odpovědnost za zjevné nebo skryté vady Aplikace, které měla Aplikace v době jejího
+                        zpřístupnění Uživateli, lze uplatnit u Provozovatele za podmínek stanovených zákonem, Smlouvou a
+                        těmito VOP;</p>
+                    <p>8.2.12 Uživatel je povinen dodržovat tyto VOP, které jsou též součástí smlouvy, a platné a účinné
+                        právní předpisy České republiky;</p>
+                    <p>8.2.13 Uživatel se může obrátit se stížností na orgán dohledu nebo státního dozoru. Česká
+                        obchodní inspekce vyřizuje mimosoudní stížnosti spotřebitelů způsobem a za podmínek stanovených
+                        příslušnými právními předpisy.</p>
+
+                    <p>9 Rozhodné právo</p>
+                    <p>9.1 Tyto VOP, jakož i Smlouva, se řídí právním řádem České republiky, zejména zák. č. 89/2012
+                        Sb., občanský zákoník, ve znění pozdějších předpisů.</p>
+                    <p>9.2 Jakékoliv spory vzniklé na základě Smlouvy a/nebo těchto VOP budou rozhodovat věcně a místně
+                        příslušné soudy České republiky.</p>
+
+                    <p>10 Účinnost</p>
+                    <p>10.1 Tyto VOP nabývají platnosti a účinnosti dne 20.05.2017.</p>
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of Modal -->
+<!-- Modal -->
+<div class="modal fade" id="hpModalCookies" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Souhlas se zpracováním souborů cookies</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Co jsou soubory cookies</p>
+                    <p>Soubory cookies jsou krátké textové soubory, které internetová stránka odešle do Vašeho
+                        prohlížeče. Umožňuje internetové stránce zaznamenat informace o Vaší návštěvě, například zvolený
+                        jazyk a podobně. Následující návštěva stránek tak pro Vás může být snazší a příjemnější. Soubory
+                        cookies jsou důležité, neboť bez nich by procházení sítě internet bylo mnohem složitější.
+                        Soubory cookies umožňují lepší využití naší internetové stránky a přizpůsobení jejího obsahu
+                        Vašim potřebám. Soubory cookies používá téměř každá internetová stránka na světě. Soubory
+                        cookies jsou užitečné, protože zvyšují uživatelskou přívětivost opakovaně navštívené internetové
+                        stránky.</p>
+                    <p>Druhy souborů cookies</p>
+                    <p>Relační (tedy dočasné) soubory cookies nám umožňují propojovat Vaše jednotlivé aktivity po dobu
+                        prohlížení těchto internetových stránek. V okamžiku otevření okna Vašeho prohlížeče se tyto
+                        soubory aktivují a deaktivují se po zavření okna Vašeho prohlížeče. Relační cookies jsou dočasné
+                        a po zavření prohlížeče se všechny tyto soubory vymažou.<br>
+                        Trvalé soubory cookies nám pomáhají Váš počítač identifikovat, jestliže opětovně navštívíte naši
+                        internetovou stránku. Další výhodou trvalých cookies je to, že nám umožňují přizpůsobit naše
+                        internetové stránky Vašim potřebám.
+                    </p>
+                    <p>Využívání souborů cookies</p>
+                    <p>V souladu s ustanovením § 89 odst. 3 zák. č. 127/2005 Sb., o elektronických komunikacích, v
+                        účinném znění, si Vás tímto dovolujeme informovat, že naše internetové stránky využívají pro
+                        svoji činnost soubory cookies, tedy Vaše soubory cookies, včetně trvalých, zpracováváme.
+                        Tento souhlas je udělen na dobu 10 let.<br>
+                        Internetové prohlížeče obvykle obsahují správu souborů cookies. V rámci nastavení Vašeho
+                        prohlížeče tak pravděpodobně můžete jednotlivé soubory cookies ručně mazat, blokovat či zcela
+                        zakázat jejich používání. Pro více informací použijte nápovědu svého internetového prohlížeče.
+                    </p>
+                    <p>Účel použití souborů cookies</p>
+                    <p>K personalizaci obsahu a reklam, poskytování funkcí sociálních médií a analýze naší návštěvnosti
+                        využíváme soubory cookies. Informace o tom, jak náš web používáte, sdílíme se svými partnery
+                        působícími v oblasti sociálních médií, inzerce a analýz.<br>
+                        Soubory cookies využíváme , kromě účelu uvedeného v předchozím odstavci, pouze pro účely
+                        stanovené v obchodních podmínkách.
+                    </p>
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of Modal -->
+<!-- Modal -->
+<div class="modal fade" id="hpModalPersonal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Souhlas s užitím osobních údajů</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Já,
+                        jakožto uživatel internetové aplikace s názvem Prague outdoor escape games dostupné v síti
+                        Internet z internetové adresy www.poeg.cz.</p>
+                    <p>
+                        , tímto ve smyslu ust. § 5 odst. 2 zákona č. 101/2000 Sb., o ochraně osobních údajů, ve znění
+                        pozdějších předpisů (dále též jako „zákon“), souhlasím se shromažďováním, uchováním a
+                        zpracováním osobních údajů mnou poskytnutých správci osobních údajů, kterým je Prague outdoor
+                        escape games , datum narození , místem podnikání Poeg, s.r.o. , IČO: 06084427 , se sídlem
+                        Vinařská 7, 170 00, Praha 7 (dále též jako „správce“), a souhlasím s tím, aby mé osobní údaje
+                        byly zpracovány a použity :</p>
+                    <p>
+                        správcem;</p>
+                    <p>
+                        jakýmkoliv zaměstnancem správce;</p>
+                    <p>
+                        jakýmkoliv smluvním partnerem správce;</p>
+                    <p>
+
+                        Tento souhlas je udělen na dobu neurčitou.</p>
+                    <p>
+                        Správcem stanovený účel zpracování osobních údajů, pro který tento souhlas poskytuji, je použití
+                        osobních údajů pro:</p>
+                    <p>
+                        zasílání obchodních nabídek správce;</p>
+                    <p>
+                        marketingové účely;</p>
+                    <p>
+                        poskytování osobních údajů třetím osobám;</p>
+                    <p>
+                        zařazení osobních údajů do databází;</p>
+                    <p>
+                        zpřístupňování osobních údajů třetím osobám;</p>
+                    <p>
+
+                        Prohlašuji, že jsem si vědom(a) svých práv podle ust. § 12 a § 21 zákona, a prohlašuji, že
+                        všechny údaje jsou přesné a pravdivé a jsou poskytovány dobrovolně.
+                        Správce prohlašuje, že bude shromažďovat osobní údaje v rozsahu nezbytném pro naplnění výše
+                        stanoveného účelu a zpracovávat je pouze v souladu s účelem, k němuž byly shromážděny.</p>
+                    <p>
+                        Správce prohlašuje, že bude osobní údaje zpracovávat následujícím způsobem:</p>
+                    <p>
+                        strojově (automatizovaně) prostřednictvím počítačů a počítačových programů;</p>
+                    <p>
+                        v písemné podobě;</p>
+                    <p>
+
+                        Tento souhlas je svobodný a vědomý projev vůle subjektu údajů, jehož obsahem je svolení subjektu
+                        údajů se zpracováním osobních údajů.</p>
+                    <p>
+
+                        Souhlas je poskytnut kliknutím na tlačítko s nápisem zaplatit v uživatelském rozhraní výše
+                        popsané internetové aplikace.
+
+                    </p>
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of Modal -->
+
+
+<!-- External JavaScripts
+============================================= -->
+
+<script type="text/javascript" src="{% static "js/plugins.js" %}"></script>
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="{% static "js/functions.js" %}"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-99289933-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">
+    window.smartlook || (function (d) {
+        var o = smartlook = function () {
+            o.api.push(arguments)
+        }, h = d.getElementsByTagName('head')[0];
+        var c = d.createElement('script');
+        o.api = new Array();
+        c.async = true;
+        c.type = 'text/javascript';
+        c.charset = 'utf-8';
+        c.src = 'https://rec.smartlook.com/recorder.js';
+        h.appendChild(c);
+    })(document);
+    smartlook('init', '43e730b6552834f9bd67f315d23d5875aef77b26');
+</script>
+</body>
+</html>

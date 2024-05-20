@@ -1,0 +1,6 @@
+# load base requirements
+-r requirements.txt
+
+# development and deployment
+Fabric3
+django-debug-toolbar

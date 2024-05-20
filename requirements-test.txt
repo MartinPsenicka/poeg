@@ -1,0 +1,4 @@
+pytest-django
+pytest-cov
+model_mommy
+urllib3-mock

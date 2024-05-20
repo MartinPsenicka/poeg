@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block content %}
+	<div class="content-wrap"
+	     style="/*background-image:  url(hp_images/hp_bg.png);background-repeat:  no-repeat; background-size: cover; background-position: center bottom; background-c*/">
+		<div class="divcenter center container" style=" margin-bottom: 0px ;  ">
+			<h1>{% trans "Congraulations! You successfully finished game" %} {{ active_game.game.name }}</h1>
+			<p>{{ active_game.game.finishpage|safe }}</p>
+
+			<h2>{% trans "Stats" %}</h2>
+			<div class="container">
+			<table class="table table-comparison table-responsive">
+				<thead>
+					<tr>
+						<th>Quest</th>
+						<th>{% trans "Time spent" %}</th>
+						<th>{% trans "Penalty" %}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for log in active_game.activegamelog_set.all %}
+						<tr>
+							<td>
+								#{{ log.quest.order }} {{ log.quest.description|truncatewords_html:10 }}
+							</td>
+							<td>
+								{{ log.spent_time }}
+							</td>
+							<td>
+								{{ log.spent_penalty_time }}
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+				<tfoot>
+					<tr class="success">
+						<th>{% trans "Total for game" %}</th>
+						<td>{{ active_game.spent_times.time_clean }}</td>
+						<td>{{ active_game.spent_times.time_penalties }}</td>
+					</tr>
+					<tr class="success">
+						<th>{% trans "Total time with penalties" %}</th>
+						<td colspan="2">{{ active_game.spent_times.time_total }}</td>
+					</tr>
+				</tfoot>
+			</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}

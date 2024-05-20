@@ -1,0 +1,13 @@
+*.py[co]
+/venv/
+/.env/
+/static/*
+/poeg/settings/local.py
+/.idea/
+.coverage
+*.egg-info/
+
+/build/
+/dist/
+
+*.mo
